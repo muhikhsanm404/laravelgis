@@ -44,9 +44,94 @@
                             <script>
                                 var map = L.map('map').setView([-8.099095988658021, 112.18379475618751], 18);
 
-                                var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                                    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                                // Hybrid: s, h;
+                                // Satellite: s;
+                                // Streets: m;
+                                // Terrain: p;
+
+                                // var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                                //     attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                                // }).addTo(map);
+
+                                L.tileLayer('http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}', {
+                                    maxZoom: 20,
+                                    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
                                 }).addTo(map);
+
+                                //menambahkan marker
+                                var maker = L.marker([-8.099095988658021, 112.18379475618751]).addTo(map).on('click', function(e) {
+                                    alert(e.LatLng);
+                                });
+
+                                maker.bindPopup("<b>hello siberman!</b></br>I am a popup.").openPopup();
+
+
+
+                                //custome marker
+                                // var greenIcon = L.icon({
+                                //     iconUrl: 'leaf-green.png',
+                                //     shadowUrl: 'leaf-shadow.png',
+
+                                //     iconSize: [38, 95], // size of the icon
+                                //     shadowSize: [50, 64], // size of the shadow
+                                //     iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+                                //     shadowAnchor: [4, 62], // the same for the shadow
+                                //     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+                                // });
+
+                                // L.marker([-8.099095988658021, 112.18379475618751], {
+                                //     icon: greenIcon
+                                // }).addTo(map);
+
+                                //POLYLINE
+
+                                // create a red polyline from an array of LatLng points
+                                var latlngs = [
+                                    [
+                                        -8.09866951317727,
+                                        112.1841119508203
+                                    ],
+                                    [
+
+                                        -8.099301738167455,
+                                        112.1840255884157
+                                    ],
+                                    [
+                                        -8.099343007888677,
+                                        112.1832146068254
+
+                                    ],
+                                    [
+                                        -8.098799533949148,
+                                        112.18269351012736
+
+                                    ]
+                                ];
+
+                                var polyline = L.polyline(latlngs, {
+                                    color: 'pink'
+                                }).addTo(map);
+
+                                polyline.setStyle({
+                                    color: 'red',
+                                    weight: 5,
+                                    // lineCap: 'square'
+                                });
+
+                                // zoom the map to the polyline
+                                map.fitBounds(polyline.getBounds());
+
+                                polyline.on('click', (e) => {
+                                    alert();
+                                    polyline.setStyle({
+                                        color: 'yellow',
+                                        weight: 5,
+
+                                    });
+
+                                })
+
+
 
                                 // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                 //     maxZoom: 19,

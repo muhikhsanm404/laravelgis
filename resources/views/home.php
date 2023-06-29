@@ -48,3 +48,35 @@
 </footer>
 
 </html>
+<!-- 
+// var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                                //     attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                                // }).addTo(map); -->
+
+<!-- //custome marker
+                                // var greenIcon = L.icon({
+                                //     iconUrl: 'leaf-green.png',
+                                //     shadowUrl: 'leaf-shadow.png',
+
+                                //     iconSize: [38, 95], // size of the icon
+                                //     shadowSize: [50, 64], // size of the shadow
+                                //     iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+                                //     shadowAnchor: [4, 62], // the same for the shadow
+                                //     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+                                // });
+
+                                // var marker = L.marker([-8.099095988658021, 112.18379475618751], {
+                                //     icon: greenIcon
+                                // }).addTo(map);
+
+                                //
+
+
+                                // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                //     maxZoom: 19,
+                                //     attribution: 'Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                                //         'Imagery &copy <a href="http://www.mapbox.com/">Mapbox</a>',
+                                //     id: 'mapbox/streets-v11',
+                                //     tileSize: 512,
+                                //     zoomOffset: -1
+                                // }).addTo(map); -->
